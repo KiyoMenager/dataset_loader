@@ -62,6 +62,10 @@ defmodule DatasetLoader do
   iex> problem = DatasetLoader.load("st70-tsp.txt")
   iex> problem.type
   "TSP"
+  iex> problem.dimension
+  "70"
+  iex> length(problem.node_coord)
+  70
   """
   def load(filename) do
     Logger.info "Loading data..."
