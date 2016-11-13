@@ -24,6 +24,7 @@ defmodule DatasetLoader do
   "70"
   iex> length(problem.node_coord)
   70
+
   """
   def import(filename) do
     Logger.info "Loading data..."
@@ -70,7 +71,13 @@ defmodule DatasetLoader do
 
     {cont, {problem, line_num + 1}}
   end
-  defp add_node_coord([id, x, y], pb), do: {:cont, pb |> Problem.add(:node_coord, {id, x, y})}
+  defp add_node_coord([id, x, y], pb) do
+    {id, _} = Integer.parse(id)
+    {x, _}  = Float.parse(x)
+    {y, _}  = Float.parse(y)
+
+    {:cont, pb |> Problem.add(:node_coord, {id, x, y})}
+  end
   defp add_node_coord(["EOF"], %Problem{comments: comments, node_coord: nodes} = pb) do
     {
       :halt,
