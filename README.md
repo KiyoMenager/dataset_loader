@@ -8,7 +8,7 @@ Example importing a dataset located at "root_dir/data/st70-tsp.txt"
 
   ```elixir
   # Load dataset from file.
-  DatasetLoader.load("st70-tsp.txt")
+  DatasetLoader.import("st70-tsp.txt")
   #=> DatasetLoader.TspProblem{
     name: "st70",
     type: "TSP",

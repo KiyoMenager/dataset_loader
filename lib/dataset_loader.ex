@@ -5,7 +5,7 @@ defmodule DatasetLoader do
   project.
   Example of importing an instance located at "root_dir/data/st70-tsp.txt"
 
-    DatasetLoader.load("st70-tsp.txt")
+    DatasetLoader.import("st70-tsp.txt")
 
   Instances can be found at http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/tsp/
 
@@ -17,7 +17,7 @@ defmodule DatasetLoader do
   NimbleCSV.define(CoordParser,  separator: " ", escape: "\"")
 
   @doc """
-  iex> problem = DatasetLoader.load("st70-tsp.txt")
+  iex> problem = DatasetLoader.import("st70-tsp.txt")
   iex> problem.type
   "TSP"
   iex> problem.dimension
